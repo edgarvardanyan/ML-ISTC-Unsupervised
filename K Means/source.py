@@ -1,4 +1,4 @@
-from k_means_solved import KMeans, KMeansPlusPlus
+from k_means import KMeans, KMeansPlusPlus
 import numpy as np
 import argparse
 import matplotlib.pyplot as plt
