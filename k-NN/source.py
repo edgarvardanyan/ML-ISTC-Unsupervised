@@ -19,15 +19,14 @@ def main(args):
     with open(args.test_data, 'r') as rfile:
         test_data = np.array(json.load(rfile))
 
-    k_nn_classifier = K_NN(args.k)
+    k_nn_classifier = K_NN(int(args.k))
     k_nn_classifier.fit(train_data)
 
     answers_train = []
     correct_answers_train = []
     for klass, data in enumerate(train_data):
-        for point in data:
-            answers_train.append(k_nn_classifier.predict(point))
-            correct_answers_train.append(klass)
+        answers_train.extend(k_nn_classifier.predict(data))
+        correct_answers_train.extend(klass * np.ones(data.shape[0]))
 
     answers = np.array(answers_train)
     correct_answers = np.array(correct_answers_train)
@@ -39,9 +38,8 @@ def main(args):
     answers_test = []
     correct_answers_test = []
     for klass, data in enumerate(test_data):
-        for point in data:
-            answers_test.append(k_nn_classifier.predict(point))
-            correct_answers_test.append(klass)
+        answers_test.extend(k_nn_classifier.predict(data))
+        correct_answers_test.extend(klass * np.ones(data.shape[0]))
 
     answers = np.array(answers_test)
     correct_answers = np.array(correct_answers_test)
