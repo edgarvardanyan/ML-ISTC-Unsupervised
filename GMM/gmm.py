@@ -1,5 +1,5 @@
 import numpy as np
-
+from kmeans import KMeans
 
 class GMM:
     def __init__(self, k):
@@ -20,7 +20,7 @@ class GMM:
             self._M_step(data)
 
     def _initialize_params(self, data):
-        # TODO: initialize means, covariances, pis
+        km = KMeans(
         pass
 
     def _E_step(data):
