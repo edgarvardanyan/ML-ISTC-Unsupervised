@@ -28,7 +28,7 @@ class KMeans:
             new_means = np.zeros((self.k, self.dim)).astype(float)
             for i in range(data.shape[0]):
                 new_means[classes[i]] += data[i]/class_count[classes[i]]
-            if (np.sum((new_means-self.means)**2)/self.dim)**0.5<((data.max()-data.min())/1000):
+            if (np.sum((new_means-self.means)**2)/self.dim)**0.5<((data.max()-data.min())/200):
                 self.classes = classes
                 break
             else:

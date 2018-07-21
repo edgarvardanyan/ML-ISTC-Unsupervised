@@ -23,6 +23,7 @@ def parse_args(*argument_array):
 def main(args):
     img = mpimg.imread(args.path)
     shp = img.shape
+    print(img.shape)
     k = args.k
     kmeans = args.algorithm(args.k)
     if len(shp) == 2:
@@ -30,9 +31,11 @@ def main(args):
     kmeans.fit(img)
     plt.axis('off')
     new_img = kmeans.predict(img)[1]
-    new_img.reshape(shp)
+    print(new_img.shape)
+    new_img = new_img.reshape(shp).astype(int)
+    print(new_img)
     plt.imshow(new_img)
-    plt.savefig('{}_{}'.format(args.path, args.name))
+    plt.savefig('cat_edgar.jpg')
     plt.show()
 
 

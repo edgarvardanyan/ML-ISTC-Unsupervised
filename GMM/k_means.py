@@ -58,6 +58,9 @@ class KMeans:
         means = self.means[classes]
         return classes, means
     
+    def retur_means(self):
+        return self.means
+    
     def distance(self, vect1, vect2):
         return np.sum((vect1-vect2)**2)**0.5
 
