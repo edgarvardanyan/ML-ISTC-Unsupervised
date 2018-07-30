@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import argparse
-from mixture import GMM
+from gmm import GMM
 
 
 def parse_args(*argument_array):
@@ -38,13 +38,14 @@ def main(args):
     pi = gmm.get_pis()
 
     # Plot ellipses for each of covariance matrices.
-    for k in range(len(sigmas)):
+    for k in range(len(sigma)):
+        #print (sigma[k])
         h, w, angle = get_ellipse_from_covariance(sigma[k])
         e = patches.Ellipse(mean[k], w, h, angle=angle)
         e.set_alpha(np.power(pi[k], .3))
         e.set_facecolor('red')
         plt.axes().add_artist(e)
-    plt.savefig('covariances_{}_{}'.format(args.data, args.name))
+    plt.savefig('edgar_gmm_dense.jpg')
     plt.show()
 
 
