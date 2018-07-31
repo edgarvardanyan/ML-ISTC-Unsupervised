@@ -29,6 +29,9 @@ class PCA:
         # is A dot x
         lambdas = np.dot(self.components, data.T).T
         return lambdas
-    
+
+    def inverse_transform(self, transformed_data):
+        return np.dot(transformed_data, self.components)
+
     def return_components(self):
         return self.components
