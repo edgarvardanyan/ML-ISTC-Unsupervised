@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 import argparse
 from gmm import GMM
+import winsound
 
 
 def parse_args(*argument_array):
@@ -45,8 +46,9 @@ def main(args):
         e.set_alpha(np.power(pi[k], .3))
         e.set_facecolor('red')
         plt.axes().add_artist(e)
-    plt.savefig('edgar_gmm_dense.jpg')
-    plt.show()
+    plt.savefig('edgar_gmm_sparse.jpg')
+    #plt.show()
+    winsound.Beep(2500, 1000)
 
 
 if __name__ == '__main__':

@@ -26,8 +26,8 @@ class GMM:
             #print ("Iteration", i, '\n', self.covariances[0], self.means[0], self.pis[0])
             i+=1
             new_log = self.log_likelihood(data)
-            print (new_log)
-            if (new_log - old_log) > 0.01 or i < 20:
+            print (i)
+            if (new_log - old_log) > 0.01 or i < 40:
                 old_log = new_log
             else:
                 break
